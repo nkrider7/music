@@ -54,8 +54,12 @@ export default {
                 }
             },
             fontFamily: {
-                Lob: ['Pacifico', 'sans-serif']
+                Lob: ['Pacifico', 'sans-serif'],
+                Quinn: ['Quinn', 'sans-serif'],
+                Jost: ['Jost', "sans-serif"],
+                Dosis: ['Dosis', 'sans-serif'],
             },
+
             borderRadius: {
                 lg: 'var(--radius)',
                 md: 'calc(var(--radius) - 2px)',

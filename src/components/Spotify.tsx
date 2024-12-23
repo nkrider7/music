@@ -11,12 +11,9 @@ const Spotify: React.FC<SpotifyProps> = ({ className = '' }) => {
          <section className="flex flex-col justify-between items-center gap-6 sm:gap-10 md:gap-16 lg:flex-row">
 
       <div className="flex flex-col justify-center sm:text-center lg:py-12 lg:text-left xl:w-5/12 xl:py-24">
-        <p className="mb-4 font-semibold text-center md:text-start text-mypink md:mb-6  myfontD md:text-lg xl:text-xl">Here Is my</p>
+        <p className="mb-4 font-semibold text-center md:text-start font-Lob text-mypink md:mb-6  md:text-lg xl:text-2xl">Here Is my</p>
 
-        <h1 className="mb-4 text-5xl text-center md:text-start font-bold text-black manrope sm:text-5xl md:mb-4 md:text-6xl">My Favorite Songs Playlist  </h1>
-
-
-      
+        <h1 className="mb-4 text-5xl text-center font-Jost md:text-start font-extrabold text-black manrope sm:text-5xl md:mb-4 md:text-6xl">My Favorite Songs Playlist  </h1>
       </div>
      
       <div className="h-fit overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:h-fit xl:w-5/12">

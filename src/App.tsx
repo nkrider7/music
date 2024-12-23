@@ -9,7 +9,6 @@ function App() {
    <>
    <div className="">
     <Hero></Hero>
-
     <h2 className="text-3xl mt-4 manrope font-[800] flex justify-center"><h2 className="text-mypink">My</h2> Videos</h2>
     <Videos/>
     <Spotify />
