@@ -18,8 +18,8 @@ export default function Profile() {
         </div>
       </div>
      
-      <div className="h-80 overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:h-2/4 xl:w-5/12">
-        <img src="/dp1.png" loading="lazy" alt="Photo by Fakurian Design" className="h-full w-full object-cover object-center" />
+      <div className="h-80 overflow-hidden rounded-lg bg-gray-100  shadow-lg lg:h-2/4 xl:w-5/12">
+        <img src="/dp1.png" loading="lazy" alt="Photo by Fakurian Design" className="h-full contrast-125 grayscale hover:grayscale-0 transition delay-75 cursor-pointer hue-rotate-[305deg] w-full myCur object-cover object-center" />
       </div>
       
     </section>
