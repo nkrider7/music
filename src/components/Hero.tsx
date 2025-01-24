@@ -2,24 +2,48 @@ import { useState, useEffect, useRef } from "react";
 import { HiPause, HiPlay } from "react-icons/hi";
 import music from "/music1.mp3";
 import "./button.css";
-import a from "@/assets/keysound/a.mp3";
-import b from "@/assets/keysound/b.mp3";
-import c from "@/assets/keysound/c.mp3";
-import d from "@/assets/keysound/d.mp3";
-import e from "@/assets/keysound/e.mp3";
-import f from "@/assets/keysound/f.mp3";
-import g from "@/assets/keysound/g.mp3";
+import { motion } from "framer-motion";
 
 export default function Hero() {
+  const [show, setShow] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [currentLyric, setCurrentLyric] = useState(""); // Current displayed lyric
   const audioRef = useRef(new Audio(music));
 
-  // useEffect to clean up the audio when the component unmounts
+  const lyrics = [
+    { time: 0, text: " ga ga re ga ga  a gum a garee" },
+    { time: 5, text: "Re hees a ree ree sa nee sa nee" },
+    { time: 10, text: "G A D DA DA D AD a gum p uh nee" },
+    { time: 15, text: "D A NEE D A NA E A GUM A GAREE" },
+    { time: 20, text: "A GUM G A D D A D A D a gum a garee" },
+    { time: 25, text: "Re hees a ree ree sa nee sa nee" },
+    { time: 30, text: "agum p uh nee D A NEE D A NEE" },
+    { time: 35, text: "D A P A S A SA NEE" },
+    { time: 40, text: "D a gum a garee a gum" },
+    { time: 45, text: "Oonshish ii i e Sadi faza, jaise bhajate ho Shehnaiya" },
+    { time: 50, text: "Lehraati hai behki hawa, gun gun ati hai tanhaiya" },
+    { time: 55, text: "Sab gaate hai sab hi madhosh hai, hum tum kyu khamoshhai" },
+    { time: 60, text: "you Sa Zidun. Tiro na. Chukwukwunga O Na." },
+    { time: 65, text: "A O Na. A O Na. A O Na." },
+  ];
+
   useEffect(() => {
     const audio = audioRef.current;
+
+    // Sync lyrics with song playback
+    const syncLyrics = () => {
+      const currentTime = Math.floor(audio.currentTime);
+      const matchedLyric = lyrics.find((lyric) => lyric.time === currentTime);
+      if (matchedLyric) setCurrentLyric(matchedLyric.text);
+    };
+
+    audio.addEventListener("timeupdate", syncLyrics);
+
+    // Clean up the audio when the component unmounts
     return () => {
       audio.pause();
       audio.currentTime = 0;
+      audio.removeEventListener("timeupdate", syncLyrics);
     };
   }, []);
 
@@ -34,115 +58,52 @@ export default function Hero() {
 
     setIsPlaying(!isPlaying);
   };
+
   return (
-    <div className="header h-fit bg-backgroundP bg-opacity-60 bg-myblack flex overflow-clip justify-center">
+    <div className="header h-fit bg-cover bg-center pb-10 bg-fixed bg-black bg-opacity-50 flex items-center justify-center">
       <div className="mt-20">
         <h2 className="text-mypink text-2xl md:text-3xl font-Lob pr-6 text-right">
           Vocalist/Guitarist
         </h2>
-        <h1 className="text-white text-5xl  mt-4 md:mt-1 md:text-8xl font-Quinn  tracking-wider text-center">
-          <span className="text-mypink">Swar</span>Shraddhs
+        <h1 className="text-white text-5xl mt-4 md:mt-1 md:text-8xl font-Quinn tracking-wider text-center">
+          <span  className="text-mypink cursor-pointer">
+            Swar
+          </span>
+          Shraddhs
         </h1>
-        <h2 className="  hidden md:block text-gray-400 font-semibold manrope italic my-2 text-center w-[40vw] leading-none">
+        <h2 className="hidden md:block text-white mb-2 font-semibold manrope italic my-2 text-center w-[40vw] leading-none">
           "Defeat is a detour, not a dead end."
         </h2>
 
-
-
-        <div className="flex justify-center  mt-4">
+        <div className="flex justify-center flex-col mx-auto mt-4">
           <button
-            className="p-2 flex items-center gap-2 Jost mb-4  bg-white w-fit text-black font-extrabold text-lg rounded-full px-2 pl-4"
+            onClick={togglePlay}
+            className="p-2 flex items-center gap-2 Jost mb-4 bg-white w-fit text-black font-extrabold text-lg rounded-full px-2 pl-4"
           >
-            Play my Music{" "}
+            {!isPlaying ? "Play music" : "  "} <motion.div
+              initial={{ opacity: 0, y: 50 }} // Animation start state
+              animate={show ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} // Show/Hide animation
+              exit={{ opacity: 0, y: 50 }} // Exit animation
+              transition={{ duration: 0.5, ease: "easeInOut" }} // Smooth animation
+            >
+              {show && (
+                <div className="text-center text-black text-lg font-bold p-4">
+                  <p>{currentLyric}</p> {/* Display the current lyric */}
+                </div>
+              )}
+            </motion.div>
             {isPlaying ? (
-              <span onClick={togglePlay} className="flex  items-center animate-spin gap-2">
-                <HiPause size={50} className="  rounded-full text-mypink" />
+              <span className="flex items-center animate-spin gap-2">
+                <HiPause size={50} className="rounded-full text-mypink" />
               </span>
             ) : (
-              <span onClick={togglePlay} className="flex rotate-45 items-center  gap-2">
-                <HiPlay size={50} className=" rounded-full text-mypink" />
+              <span className="flex rotate-45 items-center gap-2">
+                <HiPlay size={50} className="rounded-full text-mypink" />
               </span>
             )}
           </button>
         </div>
-        <Piano />
       </div>
     </div>
   );
 }
-
-interface KeyProps {
-  isBlack: boolean;
-  sound: string;
-  note: string;
-  keyLabel: string;
-}
-
-const Key = ({ isBlack, sound }: KeyProps) => {
-  const keyClass = isBlack ? "black-key" : "white-key";
-
-  const playSound = () => {
-    const audio = new Audio(sound);
-    audio.play();
-  };
-
-  return (
-    <div className={`${keyClass} key`} onClick={playSound}>
-      <span className="note-label"></span>
-      <span className="key-label "></span>
-    </div>
-  );
-};
-
-const Piano = () => {
-  const whiteKeys = [
-    { note: "C", keyLabel: "A", sound: c },
-    { note: "D", keyLabel: "S", sound: d },
-    { note: "E", keyLabel: "D", sound: e },
-    { note: "F", keyLabel: "F", sound: f },
-    { note: "G", keyLabel: "G", sound: g },
-    { note: "A", keyLabel: "H", sound: a },
-    // { note: "B", keyLabel: "J", sound: b },
-  ];
-
-  const blackKeys = [
-    null, // Spacer for missing E#
-    { note: "C#", keyLabel: "Q", sound: d },
-    { note: "D#", keyLabel: "W", sound: f },
-    { note: "F#", keyLabel: "E", sound: b },
-    null, // Spacer for missing E#
-    { note: "G#", keyLabel: "R", sound: c },
-    { note: "A#", keyLabel: "T", sound: a },
-  ];
-
-  return (
-    <div className="piano-container mt-10">
-      <div className="white-keys"> 
-        {whiteKeys.map((key, index) => (
-          <Key
-            key={index}
-            note={key.note}
-            keyLabel={key.keyLabel}
-            isBlack={false}
-            sound={key.sound}
-          />
-        ))}
-      </div>
-      <div className="black-keys">
-        {blackKeys.map((key, index) =>
-          key ? (
-            <Key
-              key={index}
-              note={key.note}
-              keyLabel={key.keyLabel}
-              isBlack={true}
-              sound={key.sound}
-            />
-          ) : (
-            <div key={index} className="spacer" />
-          )
-        )}
-      </div>
-    </div>
-  );
-};

@@ -1,8 +1,8 @@
-import Card from "./components/Card"
+// import Card from "./components/Card"
 import Footer from "./components/Footer"
 import Hero from "./components/Hero"
 // import Profile from "./components/Profile"
-import Spotify from "./components/Spotify"
+// import Spotify from "./components/Spotify"
 import Videos from "./components/Videos"
 
 function App() {
@@ -10,8 +10,7 @@ function App() {
    <>
    <div className="">
     <Hero></Hero>
-     <h2 className="text-3xl mt-4 manrope font-[800] flex justify-center"><h2 className="text-mypink">My</h2> Videos</h2>
-     <Videos/>
+     
     <div className="h-screen bg-white">
     <div className=" mx-10 md:mx-24 mb-10">
          <section className="flex flex-col justify-between items-center gap-6 sm:gap-10 md:gap-16 lg:flex-row">
@@ -47,11 +46,12 @@ function App() {
         <h1 className="text-5xl text-white font-Lob">Hello</h1>
       </div>
     </div>
-    
+    <h2 className="text-3xl mt-4 manrope font-[800] flex justify-center"><h2 className="text-mypink">My</h2> Videos</h2>
+     <Videos/>
    
-    <Spotify />
+    {/* <Spotify /> */}
     {/* <Profile /> */}
-    <Card />
+    {/* <Card /> */}
     <Footer />
    </div>
    </>

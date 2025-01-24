@@ -10,7 +10,7 @@ export default {
     theme: {
         extend: {
             colors: {
-                mypink: '#ff75a1',
+                mypink: '#ff0000',
                 myblack: '#131313',
                 background: 'hsl(var(--background))',
                 foreground: 'hsl(var(--foreground))',
