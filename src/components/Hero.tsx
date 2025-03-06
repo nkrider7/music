@@ -5,7 +5,7 @@ import "./button.css";
 import { motion } from "framer-motion";
 
 export default function Hero() {
-  const [show, setShow] = useState(true);
+  const [show] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentLyric, setCurrentLyric] = useState(""); // Current displayed lyric
   const audioRef = useRef(new Audio(music));
