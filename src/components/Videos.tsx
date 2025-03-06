@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/carousel";
 
 // List of video sources
-const videoList = ["/music1.mp4", "/music2.mp4", "/music3.mp4", "/music4.mp4", "/music5.mp4"];
+const videoList = ["/music1.mp4", "/music2.mp4", "/music3.mp4", "/music4.mp4", "/music5.mp4", "/music6.mp4"];
 
 export function VideoCarousel() {
   const [currentVideo, setCurrentVideo] = useState(0);
@@ -42,7 +42,7 @@ export function VideoCarousel() {
           {videoList.map((videoSrc, index) => (
             <CarouselItem
               key={index}
-              className={`pl-1 md:basis-1/2 lg:basis-1/3 transition-transform duration-300 ${
+              className={`pl-1 md:basis-1/2 lg:basis-1/4 transition-transform duration-300 ${
                 index === currentVideo ? "scale-100 opacity-100" : "scale-90 opacity-70"
               }`}
               onClick={() => handleSlideChange(index)}

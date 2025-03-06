@@ -10,8 +10,9 @@ export default {
     theme: {
         extend: {
             colors: {
-                mypink: '#ff0000',
+                mypink: '#ea4c89',
                 myblack: '#131313',
+                myBlack:  '#1c1c1c',
                 background: 'hsl(var(--background))',
                 foreground: 'hsl(var(--foreground))',
                 card: {
