@@ -12,7 +12,7 @@ export default function Footer() {
             <a href="#" className="font-Dosis text-sm font-medium text-gray-400 transition hover:text-mypink">
               My Video
             </a>
-            <a href="https://www.instagram.com/swar_saathi/" className="font-Dosis text-sm font-medium text-gray-400 transition hover:text-mypink">
+            <a href="https://www.instagram.com/nkriderking/" className="font-Dosis text-sm font-medium text-gray-400 transition hover:text-mypink">
               Band
             </a>
             <a href="#" className="font-Dosis text-sm font-medium text-gray-400 transition hover:text-mypink">
@@ -21,7 +21,7 @@ export default function Footer() {
           </nav>
           <div className="flex items-center gap-6">
             <a
-              href="https://www.instagram.com/swar__shraddha/"
+              href="https://www.instagram.com/nkriderking/"
               target="_blank"
               rel="noreferrer"
               className="text-xl text-gray-400 transition hover:text-mypink"
@@ -30,7 +30,7 @@ export default function Footer() {
               <BsInstagram />
             </a>
             <a
-              href="https://www.instagram.com/swar__shraddha/"
+              href="https://www.instagram.com/nkriderking/"
               target="_blank"
               rel="noreferrer"
               className="text-xl text-gray-400 transition hover:text-mypink"

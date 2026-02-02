@@ -75,7 +75,7 @@ function App() {
                   Follow me
                 </a>
                 <a
-                  href="https://www.instagram.com/swar_saathi/"
+                  href="https://www.instagram.com/nkriderking/"
                   target="_blank"
                   className="inline-flex justify-center rounded-xl border-2 border-gray-200 bg-transparent px-8 py-3.5 font-semibold text-gray-600 transition hover:border-gray-300 hover:bg-gray-50 active:bg-gray-100"
                 >
