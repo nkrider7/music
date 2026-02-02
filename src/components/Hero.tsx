@@ -5,7 +5,7 @@ import "./button.css";
 import { motion } from "framer-motion";
 
 export default function Hero() {
-  const [show] = useState(true);
+  // const [show] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentLyric, setCurrentLyric] = useState(""); // Current displayed lyric
   const audioRef = useRef(new Audio(music));
@@ -60,50 +60,42 @@ export default function Hero() {
   };
 
   return (
-    <div className="header h-fit bg-cover bg-center pb-10 bg-fixed bg-black bg-opacity-50 flex items-center justify-center">
-      <div className="mt-20">
-        <h2 className="text-mypink text-2xl md:text-3xl font-Lob pr-6 text-right">
-          Vocalist/Guitarist
-        </h2>
-        <h1 className="text-white text-5xl mt-4 md:mt-1 md:text-8xl font-Quinn tracking-wider text-center">
-          <span  className="text-mypink cursor-pointer">
-            Swar
-          </span>
-          Shraddhs
+    <header className="header flex min-h-[85vh] flex-col items-center bg-cover bg-center bg-fixed px-6 pb-16 pt-24 md:min-h-[90vh] md:pt-10">
+      <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+        <p className="mb-2 font-Lob text-xl text-mypink md:text-2xl">
+          Vocalist / Guitarist
+        </p>
+        <h1 className="font-Lob text-5xl font-bold tracking-wide text-white drop-shadow-md sm:text-6xl md:text-7xl lg:text-8xl">
+          <span className="text-mypink">Swar</span> Shraddhs
         </h1>
-        <h2 className="hidden md:block text-white mb-2 font-semibold manrope italic my-2 text-center w-[40vw] leading-none">
-          "Defeat is a detour, not a dead end."
-        </h2>
+        <p className="mt-4 max-w-md font-Dosis text-base font-medium italic text-white/95 md:text-lg">
+          &ldquo;Defeat is a detour, not a dead end.&rdquo;
+        </p>
 
-        <div className="flex justify-center flex-col mx-auto mt-4">
+        <div className=" flex flex-col mt-80 items-center gap-4">
           <button
             onClick={togglePlay}
-            className="p-2 flex items-center gap-2 Jost mb-4 bg-white w-fit text-black font-extrabold text-lg rounded-full px-2 pl-4"
+            type="button"
+            className="flex items-center gap-4 rounded-full bg-white px-6 py-4 font-Jost text-base font-bold text-black shadow-xl transition hover:bg-gray-50 active:scale-[0.98]"
           >
-            {!isPlaying ? "Play music" : "  "} <motion.div
-              initial={{ opacity: 0, y: 50 }} // Animation start state
-              animate={show ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }} // Show/Hide animation
-              exit={{ opacity: 0, y: 50 }} // Exit animation
-              transition={{ duration: 0.5, ease: "easeInOut" }} // Smooth animation
-            >
-              {show && (
-                <div className="text-center text-black text-lg font-bold p-4">
-                  <p>{currentLyric}</p> {/* Display the current lyric */}
-                </div>
-              )}
-            </motion.div>
-            {isPlaying ? (
-              <span className="flex items-center animate-spin gap-2">
-                <HiPause size={50} className="rounded-full text-mypink" />
-              </span>
+            {!isPlaying ? (
+              <HiPlay className="h-8 w-8 shrink-0 text-mypink md:h-9 md:w-9" />
             ) : (
-              <span className="flex rotate-45 items-center gap-2">
-                <HiPlay size={50} className="rounded-full text-mypink" />
-              </span>
+              <HiPause className="h-8 w-8 shrink-0 text-mypink md:h-9 md:w-9" />
             )}
+            <span>{isPlaying ? "Pause" : "Play music"}</span>
           </button>
+          <motion.div
+            key={currentLyric}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="min-h-[3rem] max-w-sm font-Dosis text-sm font-semibold text-white/90 md:text-base"
+          >
+            {currentLyric && <p>{currentLyric}</p>}
+          </motion.div>
         </div>
       </div>
-    </div>
+    </header>
   );
 }

@@ -1,38 +1,58 @@
-import { BsInstagram, BsTwitterX, BsGithub } from "react-icons/bs" 
+import { BsInstagram, BsTwitterX, BsGithub } from "react-icons/bs"
+
 export default function Footer() {
   return (
-    <div>
-        <div className="bg-myblack pt-4 sm:pt-10 lg:pt-12">
-  <footer className="mx-auto max-w-screen-2xl px-4 md:px-8">
-    <div className="flex flex-col items-center border-t pt-6">
-      <nav className="mb-4 flex flex-wrap justify-center gap-x-4 gap-y-2 md:justify-start md:gap-6">
-        <a href="#" className="text-gray-500 transition duration-100 hover:text-pink-500 active:text-pink-600">About</a>
-      
-        <a href="#" className="text-gray-500 transition duration-100 hover:text-pink-500 active:text-pink-600">My Video</a>
-        <a href="#" className="text-gray-500 transition duration-100 hover:text-pink-500 active:text-pink-600">Band</a>
-        <a href="#" className="text-gray-500 transition duration-100 hover:text-pink-500 active:text-pink-600">Blog</a>
-      </nav>
-    
-      <div className="flex gap-4">
-        <a href="#" target="_blank" className="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
-         <BsInstagram />
-        </a>
-
-        <a href="#" target="_blank" className="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
-          <BsTwitterX />
-        </a>
-
-        <a href="#" target="_blank" className="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
-          <BsGithub />
-        </a>
-
-       
+    <footer className="bg-myblack text-white">
+      <div className="mx-auto max-w-7xl px-6 py-12 md:px-10 lg:px-16">
+        <div className="flex flex-col items-center gap-8 border-t border-white/10 pt-8">
+          <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 md:gap-8">
+            <a href="https://www.instagram.com/swar__shraddha/" className="font-Dosis text-sm font-medium text-gray-400 transition hover:text-mypink">
+              About
+            </a>
+            <a href="#" className="font-Dosis text-sm font-medium text-gray-400 transition hover:text-mypink">
+              My Video
+            </a>
+            <a href="https://www.instagram.com/swar_saathi/" className="font-Dosis text-sm font-medium text-gray-400 transition hover:text-mypink">
+              Band
+            </a>
+            <a href="#" className="font-Dosis text-sm font-medium text-gray-400 transition hover:text-mypink">
+              Blog
+            </a>
+          </nav>
+          <div className="flex items-center gap-6">
+            <a
+              href="https://www.instagram.com/swar__shraddha/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-xl text-gray-400 transition hover:text-mypink"
+              aria-label="Instagram"
+            >
+              <BsInstagram />
+            </a>
+            <a
+              href="https://www.instagram.com/swar__shraddha/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-xl text-gray-400 transition hover:text-mypink"
+              aria-label="X (Twitter)"
+            >
+              <BsTwitterX />
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              rel="noreferrer"
+              className="text-xl text-gray-400 transition hover:text-mypink"
+              aria-label="GitHub"
+            >
+              <BsGithub />
+            </a>
+          </div>
+        </div>
+        <p className="mt-8 text-center font-Dosis text-sm text-gray-500">
+          © 2024 – Present Swar Shraddhs. All rights reserved.
+        </p>
       </div>
-    </div>
-
-    <div className="py-8 text-center text-sm text-gray-400">© 2024 - Present @nkriderking. All rights reserved.</div>
-  </footer>
-</div>
-    </div>
+    </footer>
   )
 }
